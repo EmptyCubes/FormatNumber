@@ -34,12 +34,11 @@ String.convert = function(value, format) {
 
 // Pulls all arguments and formats from a string to an array
 // ex: value = "{0:f3} - {1:f3}", returns = ['0:f3', '1:f3']
-// Note: if you need more split values > 999999, please modify as needed.
 String.args = function (value) {
     var results = [];
-    var result = value.split("{", 999999);
+    var result = value.split("{");
     for(var i = 0, len = result.length; i < len; i++) {
-        var innerResult = result[i].split("}", 999999);
+        var innerResult = result[i].split("}");
         results.push(innerResult[0]);
     }
     return results;
